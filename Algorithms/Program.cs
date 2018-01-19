@@ -8,7 +8,8 @@ namespace Algorithms
         {
             var algorithms = new Week1Algorithms();
             //algorithms.SumOfTwoDigits();
-            algorithms.SumOfTwoDigitsFancy();
+            //algorithms.SumOfTwoDigitsFancy();
+            algorithms.MaximumPairwiseProduct();
         }
 
     }

@@ -33,10 +33,15 @@ namespace Algorithms
             } while (input != exit);
         }
 
-        //public int MaximumPairwiseProduct(int number)
-        //{
-
-        //}
+        public void MaximumPairwiseProduct()
+        {
+            var numberOfDigits = Console.ReadLine();
+            string[] digitsInStrings = Console.ReadLine().Split(" ");
+            int[] digits = digitsInStrings.Select(i => Convert.ToInt32(i)).ToArray();
+            var maxProduct = GetMaxProduct(digits);
+            Console.WriteLine($"{maxProduct}");
+            Console.ReadLine();
+        }
 
         public int AddTwoNumbers(int a, int b)
         {
@@ -47,6 +52,12 @@ namespace Algorithms
         {
             var sorted = integers.OrderByDescending(i => i).ToArray();
             return sorted[0] * sorted[1];
+        }
+        
+        // return nth fibonacci number
+        public int FindNthFibonacci(int n)
+        {
+            return 1;
         }
 
     }

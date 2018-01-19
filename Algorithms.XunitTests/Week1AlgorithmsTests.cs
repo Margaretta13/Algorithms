@@ -7,14 +7,19 @@ namespace Algorithms.XunitTests
 {
     public class Week1AlgorithmsTests
     {
+        private Week1Algorithms algorithms;
+        public Week1AlgorithmsTests()
+        {
+           algorithms = new Week1Algorithms(); 
+        }
+
         [Theory]
         [InlineData(3, 5)]
         [InlineData(1, 9)]
         [InlineData(9, 9)]
         public void AddTwoNumbers_Adds_TwoNumbers_xunit(int a, int b)
         {
-            var alg1 = new Week1Algorithms();
-            int result = alg1.AddTwoNumbers(a, b);
+            int result = algorithms.AddTwoNumbers(a, b);
             Assert.Equal(a + b, result);
         }
 
@@ -24,10 +29,21 @@ namespace Algorithms.XunitTests
         [InlineData(new[]{1,2,18,7,1,14,9,0,12}, 252)]
         public void GetMaxProduct_Gets_MaxProduct(int[] array, int product)
         {
-            var alg1 = new Week1Algorithms();
-            int result = alg1.GetMaxProduct(array);
+            int result = algorithms.GetMaxProduct(array);
             Assert.Equal(product, result);
         }
-      
+
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(1, 1)]
+        [InlineData(2, 1)]
+        [InlineData(10, 55)]
+        public void FindNthFibonacci_Finds_Nth_Fibonacci(int input, int expectedOutput)
+        {
+            var result = algorithms.FindNthFibonacci(input);
+            Assert.Equal(expectedOutput, result);
+        }
+
+
     }
 }
