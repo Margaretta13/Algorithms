@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Algorithms
@@ -28,7 +30,7 @@ namespace Algorithms
                 {
                     int a = Convert.ToInt32(input);
                     int b = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine($"The sum of {a} and {b} is {AddTwoNumbers(a,b)}");
+                    Console.WriteLine($"The sum of {a} and {b} is {AddTwoNumbers(a, b)}");
                 }
             } while (input != exit);
         }
@@ -52,12 +54,6 @@ namespace Algorithms
         {
             var sorted = integers.OrderByDescending(i => i).ToArray();
             return sorted[0] * sorted[1];
-        }
-        
-        // return nth fibonacci number
-        public int FindNthFibonacci(int n)
-        {
-            return 1;
         }
 
     }

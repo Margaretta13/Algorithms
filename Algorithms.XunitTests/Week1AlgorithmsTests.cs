@@ -32,18 +32,5 @@ namespace Algorithms.XunitTests
             int result = algorithms.GetMaxProduct(array);
             Assert.Equal(product, result);
         }
-
-        [Theory]
-        [InlineData(0, 0)]
-        [InlineData(1, 1)]
-        [InlineData(2, 1)]
-        [InlineData(10, 55)]
-        public void FindNthFibonacci_Finds_Nth_Fibonacci(int input, int expectedOutput)
-        {
-            var result = algorithms.FindNthFibonacci(input);
-            Assert.Equal(expectedOutput, result);
-        }
-
-
     }
 }

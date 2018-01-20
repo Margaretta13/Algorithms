@@ -6,10 +6,15 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var algorithms = new Week1Algorithms();
-            //algorithms.SumOfTwoDigits();
-            //algorithms.SumOfTwoDigitsFancy();
-            algorithms.MaximumPairwiseProduct();
+            //var algorithms1 = new Week1Algorithms();
+            //algorithms1.SumOfTwoDigits();
+            //algorithms1.SumOfTwoDigitsFancy();
+            //algorithms1.MaximumPairwiseProduct();
+
+            var algorithms2 = new Week2Algorithms();
+            //algorithms2.FibonacciNumber();
+            algorithms2.GreatestCommonDivisor();
+            algorithms2.LeastCommonMultiple();
         }
 
     }
