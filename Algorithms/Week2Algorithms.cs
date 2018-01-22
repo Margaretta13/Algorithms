@@ -71,11 +71,11 @@ namespace Algorithms
             Console.ReadLine();
         }
 
-        public int FibonacciModulo(int nthFibonacci, int mModulo)
+        public int FibonacciModulo(long nthFibonacci, int mModulo)
         {
             var fibonacciModuloArray = FibonacciModuloArrayPeriodic(mModulo);
 
-            int remainder = nthFibonacci % (fibonacciModuloArray.Count - 2);
+            int remainder = Convert.ToInt32(nthFibonacci % (fibonacciModuloArray.Count - 2));
             return fibonacciModuloArray[remainder];
         }
 
@@ -83,10 +83,7 @@ namespace Algorithms
 
         private List<int> FibonacciModuloArrayPeriodic(int mModulo)
         {
-            List<int> fibonacciModuloLists = new List<int>();
-            fibonacciModuloLists.Add(0);
-            fibonacciModuloLists.Add(1);
-            fibonacciModuloLists.Add(1);
+            List<int> fibonacciModuloLists = new List<int> {0, 1, 1};
             var i = 3;
 
             while (!(fibonacciModuloLists[i - 1] == 1 && fibonacciModuloLists[i - 2] == 0))

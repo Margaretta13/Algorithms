@@ -81,14 +81,15 @@ namespace Algorithms.XunitTests
         }
 
         [Theory]
-        //[InlineData(2015, 4, 1)]
-        //[InlineData(2015, 144, 1)]
-        //[InlineData(2015, 3, 1)]
-        //[InlineData(239, 1000, 161)]
-        [InlineData(2816213588, 30524, 10249)]
-        public void FibonacciModulo(int nthFibonacci, int mModulo, int expectedModulo)
+        [InlineData("2015", 3, 1)]
+        [InlineData("2015", 4, 1)]
+        [InlineData("2015", 144, 1)]
+        [InlineData("239", 1000, 161)]
+        [InlineData("2816213588", 30524, 10249)]
+        public void FibonacciModulo(string nthFibonacci, int mModulo, int expectedModulo)
         {
-            var result = algorithms.FibonacciModulo(nthFibonacci, mModulo);
+            long n = Convert.ToInt64(nthFibonacci);
+            var result = algorithms.FibonacciModulo(n, mModulo);
             Assert.Equal(expectedModulo, result);
         }
 
