@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -80,12 +81,29 @@ namespace Algorithms
 
 
 
-        public int FibonacciNaive(int n)
+        private List<int> FibonacciModuloArrayPeriodic(int mModulo)
         {
-            return n > 1 ? FibonacciNaive(n - 1) + FibonacciNaive(n - 2) : n;
+            List<int> fibonacciModuloLists = new List<int>();
+            fibonacciModuloLists.Add(0);
+            fibonacciModuloLists.Add(1);
+            fibonacciModuloLists.Add(1);
+            var i = 3;
+
+            while (!(fibonacciModuloLists[i - 1] == 1 && fibonacciModuloLists[i - 2] == 0))
+            {
+                fibonacciModuloLists.Add((fibonacciModuloLists[i - 1] % mModulo + fibonacciModuloLists[i - 2] % mModulo) % mModulo);
+                i++;
+            }
+
+            return fibonacciModuloLists;
         }
 
-        public int FibonacciEfficiet(int n)
+        public int GetNthFibonacciNaive(int n)
+        {
+            return n > 1 ? GetNthFibonacciNaive(n - 1) + GetNthFibonacciNaive(n - 2) : n;
+        }
+
+        public int GetNthFibonacciEfficiet(int n)
         {
             var fibonacciNumbers = new int[n + 1];
             fibonacciNumbers[0] = 0;
@@ -134,22 +152,7 @@ namespace Algorithms
             return gcd * (largerNumber / gcd) * (smallerNumber / gcd);
         }
 
-        public List<int> FibonacciModuloArrayPeriodic(int mModulo)
-        {
-            List<int> fibonacciModuloLists = new List<int>();
-            fibonacciModuloLists.Add(0);
-            fibonacciModuloLists.Add(1);
-            fibonacciModuloLists.Add(1);
-            var i = 3;
 
-            while (!(fibonacciModuloLists.Last() == 1 && fibonacciModuloLists[fibonacciModuloLists.Count - 2] == 0))
-            {
-                fibonacciModuloLists.Add(FibonacciEfficiet(i) % mModulo);
-                i++;
-            }
-
-            return fibonacciModuloLists;
-        }
 
     }
 }

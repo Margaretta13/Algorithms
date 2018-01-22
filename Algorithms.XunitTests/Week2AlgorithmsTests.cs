@@ -20,7 +20,7 @@ namespace Algorithms.XunitTests
         [InlineData(10, 55)]
         public void FindNthFibonacciNaive_Finds_Nth_Fibonacci(int input, int expectedOutput)
         {
-            var result = algorithms.FibonacciNaive(input);
+            var result = algorithms.GetNthFibonacciNaive(input);
             Assert.Equal(expectedOutput, result);
         }
 
@@ -31,7 +31,7 @@ namespace Algorithms.XunitTests
         [InlineData(10, 55)]
         public void FindNthFibonacciEfficient_Finds_Nth_Fibonacci(int input, int expectedOutput)
         {
-            var result = algorithms.FibonacciEfficiet(input);
+            var result = algorithms.GetNthFibonacciEfficiet(input);
             Assert.Equal(expectedOutput, result);
         }
 
@@ -81,9 +81,11 @@ namespace Algorithms.XunitTests
         }
 
         [Theory]
-        [InlineData(2015, 3, 1)]
-        [InlineData(239, 1000, 161)]
-        //[InlineData(2816213588, 30524, 10249)]
+        //[InlineData(2015, 4, 1)]
+        //[InlineData(2015, 144, 1)]
+        //[InlineData(2015, 3, 1)]
+        //[InlineData(239, 1000, 161)]
+        [InlineData(2816213588, 30524, 10249)]
         public void FibonacciModulo(int nthFibonacci, int mModulo, int expectedModulo)
         {
             var result = algorithms.FibonacciModulo(nthFibonacci, mModulo);
