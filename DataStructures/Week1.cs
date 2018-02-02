@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,6 +17,35 @@ namespace DataStructures
     }
     public class Week1
     {
+        public int ComputeHeightWithoutUsingTree(string numNodes, string parents)
+        {
+            string[] charArray = parents.Split(" ").OrderBy(e=> e).ToArray();
+            string previous = charArray[0];
+            int height = 1;
+
+            for (int i=1;i<charArray.Length; i++)
+            {
+                if (charArray[i] != previous)
+                {
+                    previous = charArray[i];
+                    height++;
+                }
+            }
+            return height;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         private const string Success = "Success";
 
         public string IsBalanced(string text)
@@ -71,5 +99,6 @@ namespace DataStructures
             }
         }
 
+       
     }
 }
