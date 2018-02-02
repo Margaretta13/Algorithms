@@ -23,15 +23,15 @@ namespace DataStructures
         public string IsBalanced(string text)
         {
             var charLocArray = ReadStrigToBracketsArray(text);
-            Stack stack = new Stack();
-            PushChar(charLocArray[0].Character, ref stack);
+            Stack<CharacterAndLocation> stack = new Stack<CharacterAndLocation>();
+            PushChar(charLocArray[0], ref stack);
             int location = 0;
 
             for (int i = 1; i < charLocArray.Length; i++)
             {
-                if (stack.Count > 0 && ((Convert.ToChar(stack.Peek()) == '(' && charLocArray[i].Character == ')') ||
-                    (Convert.ToChar(stack.Peek()) == '{' && charLocArray[i].Character == '}') ||
-                    (Convert.ToChar(stack.Peek()) == '[' && charLocArray[i].Character == ']')))
+                if (stack.Count > 0 && ((Convert.ToChar(stack.Peek().Character) == '(' && charLocArray[i].Character == ')') ||
+                    (Convert.ToChar(stack.Peek().Character) == '{' && charLocArray[i].Character == '}') ||
+                    (Convert.ToChar(stack.Peek().Character) == '[' && charLocArray[i].Character == ']')))
                 {
                     stack.Pop();
                 }
@@ -43,10 +43,12 @@ namespace DataStructures
                         location = charLocArray[i].Position;
                         break;
                     }
-                    PushChar(charLocArray[i].Character, ref stack);
+                    PushChar(charLocArray[i], ref stack);
                 }
             }
-            return stack.Count == 0 ? Success : (location + 1).ToString();
+
+            return stack.Count == 0 ? Success :
+                location > 0 ? (location + 1).ToString() : (stack.Pop().Position + 1).ToString();
         }
 
         private CharacterAndLocation[] ReadStrigToBracketsArray(string text)
@@ -60,12 +62,12 @@ namespace DataStructures
             return charLocArray;
         }
 
-        private static void PushChar(char character, ref Stack stack)
+        private static void PushChar(CharacterAndLocation charLoc, ref Stack<CharacterAndLocation> stack)
         {
             var validBrackets = "(){}[]";
-            if (validBrackets.Contains(character.ToString()))
+            if (validBrackets.Contains(charLoc.Character.ToString()))
             {
-                stack.Push(character);
+                stack.Push(charLoc);
             }
         }
 

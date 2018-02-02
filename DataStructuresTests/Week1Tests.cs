@@ -9,7 +9,7 @@ namespace DataStructuresTests
         [InlineData("{}")]
         [InlineData("()[]")]
         [InlineData("{a()}")]
-        [InlineData("abc{a(de)bla}hello")]
+        [InlineData("abc{a(de)bla}hel[l]o")]
         public void IsBalanced_Returns_Success_If_No_Unmatched_Bracket(string input)
         {
             Week1 week1 = new Week1();
@@ -25,6 +25,8 @@ namespace DataStructuresTests
         [InlineData("{]()", "2")]
         [InlineData("foo(bar[i)]}", "10")]
         [InlineData("{}([]", "3")]
+        [InlineData("foo(bar[i({]}", "12")]
+
         public void IsBalanced_Returns_Position_Of_Unmatched_Bracket(string input, string expectedOutput)
         {
             Week1 week1 = new Week1();
