@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -22,6 +23,16 @@ namespace Algorithms.XunitTests
             int result = week3Algorithms.GetMinimumNumberOfCoins(inputValue);
 
             Assert.Equal(expectedNumberOfCoins, result);
+        }
+
+        [Theory]
+        [InlineData(new[] { "3, 50", "60 20", "100, 50", "120, 30" }, 180.0000)]
+        public void GetMaximumValueOfLoot_Gets_MaximumValueOfLoot(string[] inputs, decimal expectedMaxValue)
+        {
+
+            decimal result = week3Algorithms.GetMaximumValueOfLoot(inputs);
+
+            Assert.Equal(expectedMaxValue, result);
         }
     }
 }
