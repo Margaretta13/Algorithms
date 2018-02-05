@@ -15,19 +15,46 @@ namespace DataStructures
             Position = position;
         }
     }
+
+    public class Node
+    {
+        public int Key { get; set; }
+        private List<int> _children = new List<int>();
+
+        public List<int> Children => _children;
+
+        public Node(int key)
+        {
+            Key = key;
+        }
+
+        public void AddChildren(int key)
+        {
+            _children.Add(key);
+        }
+    }
     public class Week1
     {
+        public int ComputeHeight(string numNodes, string parents)
+        {
+            string[] charArray = parents.Split(" ");
+            
+            return 0;
+        }
+
+
+
         public int ComputeHeightWithoutUsingTree(string numNodes, string parents)
         {
-            string[] charArray = parents.Split(" ").OrderBy(e=> e).ToArray();
-            string previous = charArray[0];
+            string[] parentsArray = parents.Split(" ").OrderBy(e => e).ToArray();
+            string previous = parentsArray[0];
             int height = 1;
 
-            for (int i=1;i<charArray.Length; i++)
+            for (int i = 1; i < parentsArray.Length; i++)
             {
-                if (charArray[i] != previous)
+                if (parentsArray[i] != previous)
                 {
-                    previous = charArray[i];
+                    previous = parentsArray[i];
                     height++;
                 }
             }
@@ -99,6 +126,6 @@ namespace DataStructures
             }
         }
 
-       
+
     }
 }
